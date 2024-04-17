@@ -22,7 +22,7 @@ export interface IHttpClient {
 }
 
 export class HttpClient implements IHttpClient {
-    constructor(private fetcher = fetch) {}
+    constructor(private fetcher = window.fetch.bind(window)) {}
 
     public delete<T>(url: string, body?: unknown, options?: IHttpClientOptions): Promise<T> {
         return this.raw<T>(url, JSON.stringify(body), {
