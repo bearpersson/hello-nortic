@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <h1>Hello Nortic</h1>
-    <p>{{ fact }}</p>
+  <div class="d-flex justify-content-center align-items-center full-height">
+    <div class="w-75 d-flex flex-column justify-content-center align-items-center ">
+      <h1 class="fw-bold display-1 d-inline-block rainbow-text mb-5">Hello Nortic</h1>
+      <p v-if="fact !== ''" class="lead text-center">{{ fact }}</p>
+      <div v-else class="spinner-border text-secondary" role="status"></div>
+    </div>
   </div>
-</template>
+</template> 
 
 <script setup lang="ts">
 import { BackendRepository } from "@/api/backend-repository";
