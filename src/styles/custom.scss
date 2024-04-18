@@ -7,3 +7,14 @@
 .full-height {
     height: 100vh;;
 }
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 1s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}

@@ -8,6 +8,21 @@ namespace API {
         }
     }
 
+    namespace DogFact {
+
+        interface FactData {
+            id: string;
+            type: string;
+            attributes: {
+                body: string;
+            };
+        }
+        
+        interface Response {
+            data: FactData[];
+        }
+    }
+
     namespace ElPris {
         type Response = {
             SEK_per_kWh: number;

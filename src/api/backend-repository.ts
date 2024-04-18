@@ -7,8 +7,12 @@ class BackendRepositoryImpl {
         return this.client.get('https://catfact.ninja/fact');
     }
 
-    public getElPris(): Promise<API.ElPris.Response> {
-        return this.client.get('https://www.elprisetjustnu.se/api/v1/prices/2024/04-18_SE4.json');
+    public getDogFact(): Promise<API.DogFact.Response> {
+        return this.client.get('https://dogapi.dog/api/v2/facts');
+    }
+
+    public getElPris(year: number): Promise<API.ElPris.Response> {
+        return this.client.get(`https://www.elprisetjustnu.se/api/v1/prices/${year}/04-18_SE4.json`);
     }
 }
 
