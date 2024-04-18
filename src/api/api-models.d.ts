@@ -7,4 +7,14 @@ namespace API {
             length: number
         }
     }
+
+    namespace ElPris {
+        type Response = {
+            SEK_per_kWh: number;
+            EUR_per_kWh: number;
+            EXR: number;
+            time_start: string;
+            time_end: string;
+        }[]
+    }
 }

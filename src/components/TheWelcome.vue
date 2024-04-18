@@ -1,9 +1,30 @@
 <template>
   <div class="d-flex justify-content-center align-items-center full-height">
     <div class="w-75 d-flex flex-column justify-content-center align-items-center ">
-      <h1 class="fw-bold display-1 d-inline-block rainbow-text mb-5">{{ hello }}</h1>
-      <p v-if="fact !== ''" class="lead text-center">{{ fact }}</p>
-      <div v-else class="spinner-border text-secondary" role="status"></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tid</th>
+            <th scope="col">Föregående år</th>
+            <th scope="col">Idag</th>
+            <th scope="col">Skillnad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">13:00</th>
+            <td>10 kr</td>
+            <td>8 kr</td>
+            <td>2 kr</td>
+          </tr>
+          <tr>
+            <th scope="row">14:00</th>
+            <td>10 kr</td>
+            <td>8 kr</td>
+            <td>2 kr</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template> 
@@ -19,11 +40,14 @@ defineProps({
   }
 });
 
-const fact = ref<string>("");
+const elpris = ref<string[]>([]);
 
 const loadCatFact = () => {
-  BackendRepository.getCatFact().then((response) => {
-    fact.value = response.fact;
+  BackendRepository.getElPris().then((response) => {
+
+    elpris.value = response.map((item) => {
+      return `${item.SEK_per_kWh} - ${item.time_start}`
+    })
   });
 };
 

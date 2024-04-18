@@ -62,7 +62,6 @@ export class HttpClient implements IHttpClient {
         const requestUrl = HttpClient.createRequestUrl(url, options?.params);
 
         const headers: HeadersInit = {
-            'Content-Type': 'application/json',
             ...(options?.headers ?? {})
         };
         const request: RequestInit = { ...requestInit, headers, redirect: 'error' };
